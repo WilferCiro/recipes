@@ -54,11 +54,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function RecipePage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function RecipePage({ params }: Props) {
   const { id } = await params;
   const recipe = appRecipes.find((rec) => `${rec.id}` === `${id}`);
 
