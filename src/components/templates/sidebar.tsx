@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { Search } from "lucide-react";
 import { categories } from "@/data/categories.data";
 import Link from "next/link";
+import AppIcon from "../ui/app-icon";
 
 interface Props {
   searchTerm: string;
@@ -17,8 +18,8 @@ const SideBar = ({ searchTerm, setSearchTerm, selectedCategory }: Props) => {
       <div className="w-64 bg-white dark:bg-gray-800 shadow-lg min-h-screen p-6 border-r dark:border-gray-700">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
-              🍳 Recetas
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-white flex justify-center gap-2">
+              <AppIcon size={30} /> Recetas
             </h1>
             <ThemeToggle />
           </div>
