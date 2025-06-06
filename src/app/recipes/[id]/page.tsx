@@ -1,27 +1,20 @@
 import RecipeIdPage from "@/components/pages/recipe-id-page";
 import { categories } from "@/data/categories.data";
+import { defaultMetadata } from "@/data/metadata";
 import { appRecipes } from "@/data/recipes.data";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
 
   const recipe = appRecipes.find((rec) => `${rec.id}` === `${id}`);
 
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
   if (!recipe) {
-    return {
-      title: "Receta",
-    };
+    return defaultMetadata;
   }
 
   return {
@@ -35,7 +28,7 @@ export async function generateMetadata(
     category:
       categories.find((cat) => cat.id === recipe.category)?.name || "Comida",
     openGraph: {
-      images: [...recipe.images, ...previousImages],
+      images: [recipe.images[0]],
     },
     robots: {
       index: true,
