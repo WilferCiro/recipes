@@ -12,7 +12,7 @@ export const appRecipes: RecipeInterface[] = [
     description:
       "Deliciosos pancakes esponjosos, perfectos para un desayuno especial. Esta receta clásica resulta en pancakes suaves por dentro y ligeramente dorados por fuera.",
     images: [
-      "/images/pancake.png",
+      "/images/pancake.jpg",
       "/placeholder.svg?height=200&width=300",
       "/placeholder.svg?height=200&width=300",
     ],
